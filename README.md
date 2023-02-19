@@ -15,7 +15,7 @@ This project gives a basic general knowledge of;
 ## Author
 
 - [Kehinde Omokungbe](https://www.github.com/OK-CodeClinic)
-- [Joy Kuapa] (https://www.github.com/starkjoy)
+- [Joy Kuapa](https://www.github.com/starkjoy)
 
 ## Documentation
 All projects must obey the;
