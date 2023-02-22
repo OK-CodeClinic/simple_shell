@@ -1,5 +1,5 @@
 
-.TH SHELLBY 1 "November 2018" "ALX Software Engineering School" "0x16. C - Simple Shell"
+.TH SHELLBY 1 "February 2023" "ALX Software Engineering School" "0x16. C - Simple Shell"
 .SH NAME
 .B shellby\fR \- simple UNIX command interpreter
 .SH SYNOPSIS
