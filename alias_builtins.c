@@ -1,6 +1,6 @@
 #include "shell.h"
+#include <string.h>
 
-int shellby_alias(char **args, char __attribute__((__unused__)) **front);
 void set_alias(char *var_name, char *value);
 void print_alias(alias_t *alias);
 
@@ -31,7 +31,7 @@ int shellby_alias(char **args, char __attribute__((__unused__)) **front)
 	for (i = 0; args[i]; i++)
 	{
 		temp = aliases;
-		value = _strchr(args[i], '=');
+		value = strchr(args[i], '=');
 		if (!value)
 		{
 			while (temp)
