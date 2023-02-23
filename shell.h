@@ -1,44 +1,45 @@
-#ifndef SHELL_H
-#define SHELL_H
+#ifndef SHELL_BASIC_H
+#define SHELL_BASIC_H
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <signal.h>
 #include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include <sys/wait.h>
-#include <pwd.h>
 #include <fcntl.h>
 #include <errno.h>
 
-#define BUF_SIZE 1024
-#define MAX_ALIASES 100
-#define MAX_HISTORY 100
+/* File protoypes */
+void shell_loop(char *args[]);
+char *shell_read_line(void);
+char **shell_split_line(char *line);
+int shell_launch(char *args[], int flag);
+int shell_execute(char *args[]);
+void _free_double_pointer(char **d_pointer);
 
-/**
- * typedef struct alias - has values
- * @name: char
- * @value: char
- */
+/* Functions for Built_in commands */
+int shell_cd(char *args[]);
+int shell_help(char *args[]);
+int shell_exit(char *args[]);
+int shell_env(char **environ);
+int shell_num_builtins(void);
 
-typedef struct {
-	char *name;
-	char *value;
-} alias;
+/* Environment variables and Functions */
+char *_getenv(const char *name);
+extern char **environ;
 
-char *read_line(void);
-char **split_line(char *line);
-int execute(char **args);
-void handle_signals(int signal);
-void handle_cd(char **args);
-void handle_setenv(char **args);
-void handle_unsetenv(char **args);
-void handle_alias(char **args);
-void handle_history(void);
-void handle_help(void);
-void hande_ctrl_l(void);
-void handle_ctrl_d(void);
-int run_batch_mode(char *filename);
-int launch(char **args);
+/* Functions for Strings */
+int _strlen(char *string);
+int _strcmp(char *s1, char *s2);
+int _strncmp(char *s1, char *s2, int n);
+char *_strcat(char *dest, char *src);
+char *_strcpy(char *dest, char *src);
+char *str_concat(char *s1, char *s2);
+int _putchar(char c);
+void _puts(char *str);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 #endif

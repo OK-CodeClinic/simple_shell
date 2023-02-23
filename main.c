@@ -1,32 +1,17 @@
 #include "shell.h"
 
-#define MAX_LINE 1024
-
 /**
- * main - starts program
- * @argc: argument count
- * @argv: arguments
- * Return: returns an integer
+ * main - function main
+ * @argc: get a count of arguments
+ * @argv: get a array of arguments
+ * Return: return EXIT_SUCCESS
  */
 
-int main(void)
+int main(int argc, char *argv[])
 {
-	char *line;
-	char **args;
-	int status;
-
-	signal(SIGINT, handle_signals);
-	signal(SIGTSTP, handle_signals);
-
-	do {
-		printf("> ");
-		line = read_line();
-		args = split_line(line);
-		status = execute(args);
-
-		free(line);
-		free(args);
-	} while (status);
-
-	return (0);
+	/* Run command loop. */
+	(void)argc;
+	shell_loop(argv);
+	/* Perform any shutdown/cleanup */
+	return (EXIT_SUCCESS);
 }
